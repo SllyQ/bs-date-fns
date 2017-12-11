@@ -1,0 +1,11 @@
+{
+  "name": "bs-date-fns",
+  "bsc-flags": ["-bs-super-errors"],
+  "reason": {"react-jsx": 2},
+  "refmt": 3,
+  "sources": [
+    {
+      "dir": "src",
+    }
+  ]
+}

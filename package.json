@@ -1,0 +1,20 @@
+{
+  "name": "bs-date-fns",
+  "version": "0.1.1",
+  "description": "Bucklescript bindings to date-fns",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SllyQ/bs-date-fns.git"
+  },
+  "keywords": [
+    "reason",
+    "reasonml",
+    "bucklescript",
+    "date-fns"
+  ],
+  "author": "Arnoldas Sidlauskas <arnoldas.sid@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+		"date-fns": "^1.29.0"
+	}
+}

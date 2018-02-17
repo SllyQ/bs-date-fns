@@ -184,6 +184,7 @@ let addISOYears = flip(internal_addISOYears);
 [@bs.module] external isThisHour : Js.Date.t => bool = "date-fns/is_this_hour";
 [@bs.module] external isToday : Js.Date.t => bool = "date-fns/is_today";
 [@bs.module] external isYesterday : Js.Date.t => bool = "date-fns/is_yesterday";
+[@bs.module] external isTomorrow : Js.Date.t => bool = "date-fns/is_tomorrow";
 [@bs.module] external isThisWeek : Js.Date.t => bool = "date-fns/is_this_week";
 [@bs.module] external isThisISOWeek : Js.Date.t => bool = "date-fns/is_this_iso_week";
 [@bs.module] external isThisMonth : Js.Date.t => bool = "date-fns/is_this_month";

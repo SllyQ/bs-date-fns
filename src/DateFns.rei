@@ -80,6 +80,7 @@ let getDayOfYear: Js.Date.t => float;
 let isSameDay: (Js.Date.t, Js.Date.t) => bool;
 let isToday: Js.Date.t => bool;
 let isYesterday: Js.Date.t => bool;
+let isTomorrow: Js.Date.t => bool;
 let setDate: (float, Js.Date.t) => Js.Date.t;
 let setDayOfYear: (float, Js.Date.t) => Js.Date.t;
 let startOfDay: Js.Date.t => Js.Date.t;

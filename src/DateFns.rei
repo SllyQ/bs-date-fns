@@ -19,8 +19,8 @@ let isEqual: (Js.Date.t, Js.Date.t) => bool;
 let isFuture: Js.Date.t => bool;
 let isPast: Js.Date.t => bool;
 let isValid: Js.Date.t => bool;
-let max: array(Js.Date.t) => Js.Date.t;
-let min: array(Js.Date.t) => Js.Date.t;
+[@bs.module] [@bs.splice] external max : array(Js.Date.t) => Js.Date.t = "date-fns/max";
+[@bs.module] [@bs.splice] external min : array(Js.Date.t) => Js.Date.t = "date-fns/min";
 let parseString: (~additionalDigits: int=?, string) => Js.Date.t;
 let parseFloat: (~additionalDigits: int=?, float) => Js.Date.t;
 

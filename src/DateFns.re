@@ -71,8 +71,8 @@ let isBefore = flip(internal_isBefore);
 [@bs.module] external isFuture : Js.Date.t => bool = "date-fns/is_future";
 [@bs.module] external isPast : Js.Date.t => bool = "date-fns/is_past";
 [@bs.module] external isValid : Js.Date.t => bool = "date-fns/is_valid";
-[@bs.module] external max : array(Js.Date.t) => Js.Date.t = "date-fns/max";
-[@bs.module] external min : array(Js.Date.t) => Js.Date.t = "date-fns/min";
+[@bs.module] [@bs.splice] external max : array(Js.Date.t) => Js.Date.t = "date-fns/max";
+[@bs.module] [@bs.splice] external min : array(Js.Date.t) => Js.Date.t = "date-fns/min";
 type parseOptions = {.
   "additionalDigits": Js.Nullable.t(int)
 };

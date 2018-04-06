@@ -1,7 +1,7 @@
 let flip = (f) => (a, b) => f(b, a);
 let handleOptBool = optBool => optBool
   |> Js.Option.map([@bs] bool => bool ? Js.true_ : Js.false_)
-  |> Js.Nullable.from_opt;
+  |> Js.Nullable.fromOption;
 
 type timeUnit = | Second | Minute | Hour | Day | Month | Year;
 type partialMethod = | Floor | Ceil | Round;
@@ -45,10 +45,10 @@ let distanceInWordsStrict = (~addSuffix=?, ~unit=?, ~partialMethod=?, dateToComp
     "addSuffix": addSuffix |> handleOptBool,
     "unit": unit
       |> Js.Option.map([@bs] unit => timeUnitToString(unit))
-      |> Js.Nullable.from_opt,
+      |> Js.Nullable.fromOption,
     "partialMethod": partialMethod
       |> Js.Option.map([@bs] partialMethod => partialMethodToString(partialMethod))
-      |> Js.Nullable.from_opt
+      |> Js.Nullable.fromOption
   });
 type distanceInWordsToNowOptions = {.
   "includeSeconds": Js.Nullable.t(Js.boolean),
@@ -78,11 +78,11 @@ type parseOptions = {.
 };
 [@bs.module] external internal_parseFloat : float => parseOptions => Js.Date.t = "date-fns/parse";
 let parseFloat = (~additionalDigits=?, float) => internal_parseFloat(float, {
-  "additionalDigits": additionalDigits |> Js.Nullable.from_opt
+  "additionalDigits": additionalDigits |> Js.Nullable.fromOption
 });
 [@bs.module] external internal_parseString : string => parseOptions => Js.Date.t = "date-fns/parse";
 let parseString = (~additionalDigits=?, string) => internal_parseString(string, {
-  "additionalDigits": additionalDigits |> Js.Nullable.from_opt
+  "additionalDigits": additionalDigits |> Js.Nullable.fromOption
 });
 [@bs.module] external areRangesOverlapping : (Js.Date.t, Js.Date.t, Js.Date.t, Js.Date.t) => bool = "date-fns/are_ranges_overlapping";
 [@bs.module] external getOverlappingDaysInRanges : (Js.Date.t, Js.Date.t, Js.Date.t, Js.Date.t) => float = "date-fns/get_overlapping_days_in_ranges";

@@ -1,6 +1,5 @@
 let flip = (f) => (a, b) => f(b, a);
 let handleOptBool = optBool => optBool
-  |> Js.Option.map([@bs] bool => bool ? Js.true_ : Js.false_)
   |> Js.Nullable.fromOption;
 
 type timeUnit = | Second | Minute | Hour | Day | Month | Year;
@@ -25,8 +24,8 @@ let closestTo = flip(internal_closestTo);
 [@bs.module] external compareAsc : (Js.Date.t, Js.Date.t) => int = "date-fns/compare_asc";
 [@bs.module] external compareDesc : (Js.Date.t, Js.Date.t) => int = "date-fns/compare_desc";
 type distanceInWordsOptions = {.
-  "includeSeconds": Js.Nullable.t(Js.boolean),
-  "addSuffix": Js.Nullable.t(Js.boolean),
+  "includeSeconds": Js.Nullable.t(bool),
+  "addSuffix": Js.Nullable.t(bool),
 };
 [@bs.module] external internal_distanceInWords : (Js.Date.t, Js.Date.t, distanceInWordsOptions) => string = "date-fns/distance_in_words";
 let distanceInWords = (~includeSeconds=?, ~addSuffix=?, dateToCompare, date) =>
@@ -35,7 +34,7 @@ let distanceInWords = (~includeSeconds=?, ~addSuffix=?, dateToCompare, date) =>
     "addSuffix": addSuffix |> handleOptBool
   });
 type distanceInWordsStrictOptions = {.
-  "addSuffix": Js.Nullable.t(Js.boolean),
+  "addSuffix": Js.Nullable.t(bool),
   "unit": Js.Nullable.t(string),
   "partialMethod": Js.Nullable.t(string)
 };
@@ -51,8 +50,8 @@ let distanceInWordsStrict = (~addSuffix=?, ~unit=?, ~partialMethod=?, dateToComp
       |> Js.Nullable.fromOption
   });
 type distanceInWordsToNowOptions = {.
-  "includeSeconds": Js.Nullable.t(Js.boolean),
-  "addSuffix": Js.Nullable.t(Js.boolean)
+  "includeSeconds": Js.Nullable.t(bool),
+  "addSuffix": Js.Nullable.t(bool)
 };
 [@bs.module] external internal_distanceInWordsToNow : (Js.Date.t, distanceInWordsToNowOptions) => string = "date-fns/distance_in_words_to_now";
 let distanceInWordsToNow = (~includeSeconds=?, ~addSuffix=?, date) =>

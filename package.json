@@ -1,6 +1,6 @@
 {
   "name": "bs-date-fns",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Bucklescript bindings to date-fns",
   "scripts": {
     "bs-build": "bsb -clean-world -make-world"

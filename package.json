@@ -3,16 +3,25 @@
   "version": "0.1.6",
   "description": "Bucklescript bindings to date-fns",
   "scripts": {
-    "bs-build": "bsb -clean-world -make-world"
+    "bs-build": "bsb -clean-world -make-world",
+    "watch": "bsb -make-world -clean-world -w"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/SllyQ/bs-date-fns.git"
   },
-  "keywords": ["reason", "reasonml", "bucklescript", "date-fns"],
+  "keywords": [
+    "reason",
+    "reasonml",
+    "bucklescript",
+    "date-fns"
+  ],
   "author": "Arnoldas Sidlauskas <arnoldas.sid@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "date-fns": "^1.29.0"
+    "date-fns": "^2.6.0"
+  },
+  "devDependencies": {
+    "bs-platform": "^5.0.6"
   }
 }

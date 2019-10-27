@@ -5,7 +5,12 @@
   "refmt": 3,
   "sources": [
     {
-      "dir": "src",
+      "dir": "src"
+    },
+    {
+      "dir": "examples",
+      "subdirs": true,
+      "type": "dev"
     }
-  ],
+  ]
 }

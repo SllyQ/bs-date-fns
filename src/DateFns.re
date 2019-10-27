@@ -6,12 +6,12 @@ type timeUnit = | Second | Minute | Hour | Day | Month | Year;
 type partialMethod = | Floor | Ceil | Round;
 
 let timeUnitToString = fun
-  | Second => "s"
-  | Minute => "m"
-  | Hour => "h"
-  | Day => "d"
-  | Month => "M"
-  | Year => "Y";
+  | Second => "second"
+  | Minute => "minute"
+  | Hour => "hour"
+  | Day => "day"
+  | Month => "month"
+  | Year => "year";
 let partialMethodToString = fun
   | Floor => "floor"
   | Ceil => "ceil"
@@ -36,17 +36,17 @@ let formatDistance = (~includeSeconds=?, ~addSuffix=?, dateToCompare, date) =>
 type formatDistanceStrictOptions = {.
   "addSuffix": Js.Nullable.t(bool),
   "unit": Js.Nullable.t(string),
-  "partialMethod": Js.Nullable.t(string)
+  "roundingMethod": Js.Nullable.t(string)
 };
 [@bs.module] external internal_formatDistanceStrict : (Js.Date.t, Js.Date.t, formatDistanceStrictOptions) => string = "date-fns/formatDistanceStrict";
-let formatDistanceStrict = (~addSuffix=?, ~unit=?, ~partialMethod=?, dateToCompare, date) =>
+let formatDistanceStrict = (~addSuffix=?, ~unit=?, ~roundingMethod=?, dateToCompare, date) =>
   internal_formatDistanceStrict(dateToCompare, date, {
     "addSuffix": addSuffix |> handleOptBool,
     "unit": unit
       |> Js.Option.map([@bs] unit => timeUnitToString(unit))
       |> Js.Nullable.fromOption,
-    "partialMethod": partialMethod
-      |> Js.Option.map([@bs] partialMethod => partialMethodToString(partialMethod))
+    "roundingMethod": roundingMethod
+      |> Js.Option.map([@bs] roundingMethod => partialMethodToString(roundingMethod))
       |> Js.Nullable.fromOption
   });
 type formatDistanceToNowOptions = {.
@@ -86,8 +86,8 @@ let parseFloat = (~additionalDigits=?, float) => internal_parseFloat(float, {
 let parseString = (~additionalDigits=?, string) => internal_parseString(string, {
   "additionalDigits": additionalDigits |> Js.Nullable.fromOption
 });
-[@bs.module] external areRangesOverlapping : (Js.Date.t, Js.Date.t, Js.Date.t, Js.Date.t) => bool = "date-fns/areRangesOverlapping";
-[@bs.module] external getOverlappingDaysInRanges : (Js.Date.t, Js.Date.t, Js.Date.t, Js.Date.t) => float = "date-fns/getOverlappingDaysInRanges";
+[@bs.module] external areIntervalsOverlapping : (Js.Date.t, Js.Date.t, Js.Date.t, Js.Date.t) => bool = "date-fns/areIntervalsOverlapping";
+[@bs.module] external getOverlappingDaysInIntervals : (Js.Date.t, Js.Date.t, Js.Date.t, Js.Date.t) => float = "date-fns/getOverlappingDaysInIntervals";
 [@bs.module] external internalIsWithinRange : (Js.Date.t, Js.Date.t, Js.Date.t) => bool = "date-fns/isWithinInterval";
 let isWithinInterval = (startDate, endDate, date) => internalIsWithinRange(date, startDate, endDate);
 
@@ -106,8 +106,15 @@ let isWithinInterval = (startDate, endDate, date) => internalIsWithinRange(date,
 [@bs.module] external getQuarter : (Js.Date.t) => float = "date-fns/getQuarter";
 [@bs.module] external getDaysInYear : (Js.Date.t) => float = "date-fns/getDaysInYear";
 [@bs.module] external getYear : (Js.Date.t) => float = "date-fns/getYear";
+[@bs.module] external getWeek : (Js.Date.t) => float = "date-fns/getWeek";
+[@bs.module] external getWeekYear : (Js.Date.t) => float = "date-fns/getWeekYear";
+[@bs.module] external startOfWeekYear : (Js.Date.t) => float = "date-fns/startOfWeekYear";
 [@bs.module] external getISOWeeksInYear : (Js.Date.t) => float = "date-fns/getISOWeeksInYear";
 [@bs.module] external getISOWeekYear : (Js.Date.t) => float = "date-fns/getISOWeekYear";
+[@bs.module] external getDecade : (Js.Date.t) => float = "date-fns/getDecade";
+[@bs.module] external startOfDecade : (Js.Date.t) => float = "date-fns/startOfDecade";
+[@bs.module] external endOfDecade : (Js.Date.t) => float = "date-fns/endOfDecade";
+[@bs.module] external lastDayOfDecade : (Js.Date.t) => float = "date-fns/lastDayOfDecade";
 
 [@bs.module] external internal_setMilliseconds : (Js.Date.t, float) => Js.Date.t = "date-fns/setMilliseconds";
 [@bs.module] external internal_setSeconds : (Js.Date.t, float) => Js.Date.t = "date-fns/setSeconds";
@@ -121,6 +128,8 @@ let isWithinInterval = (startDate, endDate, date) => internalIsWithinRange(date,
 [@bs.module] external internal_setMonth : (Js.Date.t, float) => Js.Date.t = "date-fns/setMonth";
 [@bs.module] external internal_setQuarter : (Js.Date.t, float) => Js.Date.t = "date-fns/setQuarter";
 [@bs.module] external internal_setYear : (Js.Date.t, float) => Js.Date.t = "date-fns/setYear";
+[@bs.module] external internal_setWeek : (Js.Date.t, float) => Js.Date.t = "date-fns/setWeek";
+[@bs.module] external internal_setWeekYear : (Js.Date.t, float) => Js.Date.t = "date-fns/setWeekYear";
 [@bs.module] external internal_setISOWeekYear : (Js.Date.t, float) => Js.Date.t = "date-fns/setISOWeekYear";
 
 let setMilliseconds = flip(internal_setMilliseconds);
@@ -135,6 +144,8 @@ let setISOWeek = flip(internal_setISOWeek);
 let setMonth = flip(internal_setMonth);
 let setQuarter = flip(internal_setQuarter);
 let setYear = flip(internal_setYear);
+let setWeek = flip(internal_setWeek);
+let setWeekYear = flip(internal_setWeekYear);
 let setISOWeekYear = flip(internal_setISOWeekYear);
 
 [@bs.module] external internal_subMilliseconds : (Js.Date.t, float) => Js.Date.t = "date-fns/subMilliseconds";
@@ -275,4 +286,5 @@ let addISOWeekYears = flip(internal_addISOWeekYears);
 [@bs.module] external isLastDayOfMonth : Js.Date.t => bool = "date-fns/isLastDayOfMonth";
 [@bs.module] external isLeapYear : Js.Date.t => bool = "date-fns/isLeapYear";
 
-[@bs.module] external eachDay : (Js.Date.t, Js.Date.t) => array(Js.Date.t) = "date-fns/eachDay";
+[@bs.module] external eachDayOfInterval : (Js.Date.t, Js.Date.t) => array(Js.Date.t) = "date-fns/eachDayOfInterval";
+[@bs.module] external eachWeekOfInterval : (Js.Date.t, Js.Date.t) => array(Js.Date.t) = "date-fns/eachWeekOfInterval";

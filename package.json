@@ -1,6 +1,6 @@
 {
   "name": "bs-date-fns",
-  "version": "0.1.6",
+  "version": "1.0.0-alpha.1",
   "description": "Bucklescript bindings to date-fns",
   "scripts": {
     "bs-build": "bsb -clean-world -make-world",
@@ -19,9 +19,9 @@
   "author": "Arnoldas Sidlauskas <arnoldas.sid@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "date-fns": "^2.6.0"
+    "date-fns": "^2.8.1"
   },
   "devDependencies": {
-    "bs-platform": "^5.0.6"
+    "bs-platform": "^7.0.1"
   }
 }

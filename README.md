@@ -1,6 +1,12 @@
 # Bucklescript bindings to date-fns
 
-Bindings for all date-fns functions as of 2.6.0. Currently still missing support for locales.
+## New 2.x bindings
+
+You can `npm install bs-date-bns@next` for the new 2.x date-fns bindings which have been switched to t-first convention so you should use `->` instead of `|>` to pipe arguments. It is more in line with the rest of ecosystem and will lead to smaller bundle sizes, because flipping arguments has led to problems with tree-shaking. However that does mean breaking changes. Also it's a major version bump in date-fns itself so that has caused breaking-changes too, refer to date-fns documentation for that.
+
+## 1.x bindings
+
+Current default npm release includes bindings for all date-fns functions using 1.x. It's missing support for locales.
 
 ## Getting started
 

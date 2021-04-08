@@ -2,14 +2,23 @@
   "name": "bs-date-fns",
   "bsc-flags": ["-bs-super-errors"],
   "refmt": 3,
+  "suffix": ".bs.js",
+  "bs-dev-dependencies": ["@glennsl/bs-jest"],
+  "namespace": true,
   "sources": [
     {
       "dir": "src"
     },
     {
-      "dir": "examples",
+      "dir": "__tests__",
       "subdirs": true,
       "type": "dev"
+    }
+  ],
+  "package-specs": [
+    {
+      "module": "commonjs",
+      "in-source": true
     }
   ]
 }

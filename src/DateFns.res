@@ -7,15 +7,15 @@ type interval = {
 type locale
 
 // Common Helpers
-@module("date-fns")
-external closestIndexTo: (Js.Date.t, array<Js.Date.t>) => int = "closestIndexTo"
-@module("date-fns")
-external closestTo: (Js.Date.t, array<Js.Date.t>) => Js.Date.t = "closestTo"
-@module("date-fns") external compareAsc: (Js.Date.t, Js.Date.t) => int = "compareAsc"
+@module
+external closestIndexTo: (Js.Date.t, array<Js.Date.t>) => int = "date-fns/closestIndexTo"
+@module
+external closestTo: (Js.Date.t, array<Js.Date.t>) => Js.Date.t = "date-fns/closestTo"
+@module external compareAsc: (Js.Date.t, Js.Date.t) => int = "date-fns/compareAsc"
 
-@module("date-fns") external compareDesc: (Js.Date.t, Js.Date.t) => int = "compareDesc"
+@module external compareDesc: (Js.Date.t, Js.Date.t) => int = "date-fns/compareDesc"
 
-@module("date-fns") external format: (Js.Date.t, string) => string = "format"
+@module external format: (Js.Date.t, string) => string = "date-fns/format"
 type formatOptions = {
   locale: option<locale>,
   weekStartsOn: option<int>,
@@ -23,90 +23,91 @@ type formatOptions = {
   useAdditionalWeekYearTokens: option<bool>,
   useAdditionalDayOfYearTokens: option<bool>,
 }
-@module("date-fns")
-external formatOpt: (Js.Date.t, string, formatOptions) => string = "formatOpt"
+@module
+external formatOpt: (Js.Date.t, string, formatOptions) => string = "date-fns/formatOpt"
 
-@module("date-fns")
-external formatDistance: (Js.Date.t, Js.Date.t) => string = "formatDistance"
+@module
+external formatDistance: (Js.Date.t, Js.Date.t) => string = "date-fns/formatDistance"
 type formatDistanceOptions = {
   includeSeconds: option<bool>,
   addSuffix: option<bool>,
   locale: option<locale>,
 }
-@module("date-fns")
+@module
 external formatDistanceOpt: (Js.Date.t, Js.Date.t, formatDistanceOptions) => string =
-  "formatDistance"
-@module("date-fns")
-external formatDistanceStrict: (Js.Date.t, Js.Date.t) => string = "formatDistanceStrict"
+  "date-fns/formatDistance"
+@module
+external formatDistanceStrict: (Js.Date.t, Js.Date.t) => string = "date-fns/formatDistanceStrict"
 type formatDistanceStrictOptions = {
   addSuffix: option<bool>,
   unit: option<string>,
   roundingMethod: option<string>,
   locale: option<locale>,
 }
-@module("date-fns")
+@module
 external formatDistanceStrictOpt: (Js.Date.t, Js.Date.t, formatDistanceStrictOptions) => string =
-  "formatDistanceStrict"
-@module("date-fns")
-external formatDistanceToNow: Js.Date.t => string = "formatDistanceToNow"
+  "date-fns/formatDistanceStrict"
+@module
+external formatDistanceToNow: Js.Date.t => string = "date-fns/formatDistanceToNow"
 type formatDistanceToNowOptions = {
   includeSeconds: option<bool>,
   addSuffix: option<bool>,
   locale: option<locale>,
 }
-@module("date-fns")
+@module
 external formatDistanceToNowOpt: (Js.Date.t, formatDistanceToNowOptions) => string =
-  "formatDistanceToNow"
+  "date-fns/formatDistanceToNow"
 
-@module("date-fns")
-external formatISO: Js.Date.t => string = "formatISO"
+@module
+external formatISO: Js.Date.t => string = "date-fns/formatISO"
 type formatISOOptions = {
   format: option<string>,
   representation: option<string>,
 }
 
-@module("date-fns")
-external formatISOOpt: (Js.Date.t, formatISOOptions) => string = "formatISO"
+@module
+external formatISOOpt: (Js.Date.t, formatISOOptions) => string = "date-fns/formatISO"
 
-@module("date-fns")
-external formatISO9075: Js.Date.t => string = "formatISO9075"
+@module
+external formatISO9075: Js.Date.t => string = "date-fns/formatISO9075"
 type formatISO9075Options = {
   format: option<string>,
   representation: option<string>,
 }
 
-@module("date-fns")
-external formatISO9075Opt: (Js.Date.t, formatISO9075Options) => string = "formatISO9075"
+@module
+external formatISO9075Opt: (Js.Date.t, formatISO9075Options) => string = "date-fns/formatISO9075"
 
-@module("date-fns") external formatRFC3339: Js.Date.t => string = "formatRFC3339"
+@module external formatRFC3339: Js.Date.t => string = "date-fns/formatRFC3339"
 type formatRFC3339Options = {fractionDigits: option<int>}
 
-@module("date-fns")
-external formatRFC3339Options: (Js.Date.t, formatRFC3339Options) => string = "formatRFC3339"
+@module
+external formatRFC3339Options: (Js.Date.t, formatRFC3339Options) => string =
+  "date-fns/formatRFC3339"
 
-@module("date-fns") external formatRFC7231: Js.Date.t => string = "formatRFC7231"
+@module external formatRFC7231: Js.Date.t => string = "date-fns/formatRFC7231"
 
-@module("date-fns")
-external formatRelative: (Js.Date.t, Js.Date.t) => string = "formatRelative"
+@module
+external formatRelative: (Js.Date.t, Js.Date.t) => string = "date-fns/formatRelative"
 type formatRelativeOptions = {
   locale: option<locale>,
   weekStartsOn: option<int>,
 }
-@module("date-fns")
+@module
 external formatRelativeOpt: (Js.Date.t, Js.Date.t, formatRelativeOptions) => string =
-  "formatRelative"
+  "date-fns/formatRelative"
 
-@module("date-fns") external isAfter: (Js.Date.t, Js.Date.t) => bool = "isAfter"
-@module("date-fns") external isBefore: (Js.Date.t, Js.Date.t) => bool = "isBefore"
-@module("date-fns") external isDate: 'a => bool = "isDate"
-@module("date-fns") external isEqual: (Js.Date.t, Js.Date.t) => bool = "isEqual"
-@module("date-fns") external isFuture: Js.Date.t => bool = "isFuture"
-@module("date-fns") external isPast: Js.Date.t => bool = "isPast"
-@module("date-fns") external isValid: 'a => bool = "isValid"
-@module("date-fns") external lightFormat: (Js.Date.t, string) => string = "lightFormat"
-@module("date-fns") external max: array<Js.Date.t> => Js.Date.t = "max"
-@module("date-fns") external min: array<Js.Date.t> => Js.Date.t = "min"
-@module("date-fns") external parse: (string, string, Js.Date.t) => Js.Date.t = "parse"
+@module external isAfter: (Js.Date.t, Js.Date.t) => bool = "date-fns/isAfter"
+@module external isBefore: (Js.Date.t, Js.Date.t) => bool = "date-fns/isBefore"
+@module external isDate: 'a => bool = "date-fns/isDate"
+@module external isEqual: (Js.Date.t, Js.Date.t) => bool = "date-fns/isEqual"
+@module external isFuture: Js.Date.t => bool = "date-fns/isFuture"
+@module external isPast: Js.Date.t => bool = "date-fns/isPast"
+@module external isValid: 'a => bool = "date-fns/isValid"
+@module external lightFormat: (Js.Date.t, string) => string = "date-fns/lightFormat"
+@module external max: array<Js.Date.t> => Js.Date.t = "date-fns/max"
+@module external min: array<Js.Date.t> => Js.Date.t = "date-fns/min"
+@module external parse: (string, string, Js.Date.t) => Js.Date.t = "date-fns/parse"
 type parseOptions = {
   locale: option<locale>,
   weekStartsOn: option<int>,
@@ -114,15 +115,15 @@ type parseOptions = {
   useAdditionalWeekYearTokens: option<bool>,
   useAdditionalDayOfYearTokens: option<bool>,
 }
-@module("date-fns")
-external parseOpt: (string, string, Js.Date.t, parseOptions) => Js.Date.t = "parse"
-@module("date-fns") external parseISO: string => Js.Date.t = "parseISO"
+@module
+external parseOpt: (string, string, Js.Date.t, parseOptions) => Js.Date.t = "date-fns/parse"
+@module external parseISO: string => Js.Date.t = "date-fns/parseISO"
 type parseISOOptions = {additionalDigits: option<int>}
-@module("date-fns")
-external parseISOOpt: (string, parseISOOptions) => Js.Date.t = "parseISO"
-@module("date-fns") external parseJSONString: string => Js.Date.t = "parseJSON"
-@module("date-fns") external parseJSONFloat: float => Js.Date.t = "parseJSON"
-@module("date-fns") external parseJSONInt: int => Js.Date.t = "parseJSON"
+@module
+external parseISOOpt: (string, parseISOOptions) => Js.Date.t = "date-fns/parseISO"
+@module external parseJSONString: string => Js.Date.t = "date-fns/parseJSON"
+@module external parseJSONFloat: float => Js.Date.t = "date-fns/parseJSON"
+@module external parseJSONInt: int => Js.Date.t = "date-fns/parseJSON"
 type setOptions = {
   year: option<int>,
   month: option<int>,
@@ -132,428 +133,442 @@ type setOptions = {
   seconds: option<int>,
   milliseconds: option<int>,
 }
-@module("date-fns") external set: (Js.Date.t, setOptions) => Js.Date.t = "set"
-@module("date-fns") external toDateFloat: float => Js.Date.t = "toDate"
-@module("date-fns") external toDateInt: int => Js.Date.t = "toDate"
+@module external set: (Js.Date.t, setOptions) => Js.Date.t = "date-fns/set"
+@module external toDateFloat: float => Js.Date.t = "date-fns/toDate"
+@module external toDateInt: int => Js.Date.t = "date-fns/toDate"
 
 // Interval Helpers
 
-@module("date-fns")
-external areIntervalsOverlapping: (interval, interval) => bool = "areIntervalsOverlapping"
+@module
+external areIntervalsOverlapping: (interval, interval) => bool = "date-fns/areIntervalsOverlapping"
 
-@module("date-fns")
-external eachDayOfInterval: interval => array<Js.Date.t> = "eachDayOfInterval"
+@module external eachDayOfInterval: interval => array<Js.Date.t> = "date-fns/eachDayOfInterval"
 
 type eachDayOfIntervalOptions = {step: option<int>}
-@module("date-fns")
+@module
 external eachDayOfIntervalOpt: (interval, eachDayOfIntervalOptions) => array<Js.Date.t> =
-  "eachDayOfInterval"
+  "date-fns/eachDayOfInterval"
 
-@module("date-fns")
-external eachWeekOfInterval: interval => array<Js.Date.t> = "eachWeekOfInterval"
+@module
+external eachWeekOfInterval: interval => array<Js.Date.t> = "date-fns/eachWeekOfInterval"
 type eachWeekOfIntervalOptions = {
   locale: option<locale>,
   weekStartsOn: option<int>,
 }
-@module("date-fns")
+@module
 external eachWeekOfIntervalOpt: (interval, eachWeekOfIntervalOptions) => array<Js.Date.t> =
-  "eachWeekOfInterval"
+  "date-fns/eachWeekOfInterval"
 
-@module("date-fns")
-external eachWeekendOfInterval: interval => array<Js.Date.t> = "eachWeekendOfInterval"
+@module
+external eachWeekendOfInterval: interval => array<Js.Date.t> = "date-fns/eachWeekendOfInterval"
 
-@module("date-fns")
+@module
 external getOverlappingDaysInIntervals: (interval, interval) => int =
-  "getOverlappingDaysInIntervals"
-@module("date-fns")
+  "date-fns/getOverlappingDaysInIntervals"
+@module
 external getOverlappingDaysInIntervalsf: (interval, interval) => float =
-  "getOverlappingDaysInIntervals"
-@module("date-fns")
-external isWithinInterval: (Js.Date.t, interval) => bool = "isWithinInterval"
+  "date-fns/getOverlappingDaysInIntervals"
+@module
+external isWithinInterval: (Js.Date.t, interval) => bool = "date-fns/isWithinInterval"
 
 // Timestamp Helpers
-@module("date-fns") external fromUnixTime: float => Js.Date.t = "fromUnixTime"
-@module("date-fns") external getTime: Js.Date.t => float = "getTime"
-@module("date-fns") external getUnixTime: Js.Date.t => float = "getUnixTime"
+@module external fromUnixTime: float => Js.Date.t = "date-fns/fromUnixTime"
+@module external getTime: Js.Date.t => float = "date-fns/getTime"
+@module external getUnixTime: Js.Date.t => float = "date-fns/getUnixTime"
 
 // Millisecond Helpers
-@module("date-fns")
-external addMilliseconds: (Js.Date.t, int) => Js.Date.t = "addMilliseconds"
-@module("date-fns")
-external addMillisecondsf: (Js.Date.t, float) => Js.Date.t = "addMilliseconds"
-@module("date-fns")
-external differenceInMilliseconds: (Js.Date.t, Js.Date.t) => int = "differenceInMilliseconds"
-@module("date-fns")
-external differenceInMillisecondsf: (Js.Date.t, Js.Date.t) => float = "differenceInMilliseconds"
-@module("date-fns") external getMilliseconds: Js.Date.t => int = "getMilliseconds"
-@module("date-fns") external getMillisecondsf: Js.Date.t => float = "getMilliseconds"
-@module("date-fns")
-external setMilliseconds: (Js.Date.t, int) => Js.Date.t = "setMilliseconds"
-@module("date-fns")
-external setMillisecondsf: (Js.Date.t, float) => Js.Date.t = "setMilliseconds"
-@module("date-fns")
-external subMilliseconds: (Js.Date.t, int) => Js.Date.t = "subMilliseconds"
-@module("date-fns")
-external subMillisecondsf: (Js.Date.t, float) => Js.Date.t = "subMilliseconds"
+@module
+external addMilliseconds: (Js.Date.t, int) => Js.Date.t = "date-fns/addMilliseconds"
+@module
+external addMillisecondsf: (Js.Date.t, float) => Js.Date.t = "date-fns/addMilliseconds"
+@module
+external differenceInMilliseconds: (Js.Date.t, Js.Date.t) => int =
+  "date-fns/differenceInMilliseconds"
+@module
+external differenceInMillisecondsf: (Js.Date.t, Js.Date.t) => float =
+  "date-fns/differenceInMilliseconds"
+@module external getMilliseconds: Js.Date.t => int = "date-fns/getMilliseconds"
+@module external getMillisecondsf: Js.Date.t => float = "date-fns/getMilliseconds"
+@module
+external setMilliseconds: (Js.Date.t, int) => Js.Date.t = "date-fns/setMilliseconds"
+@module
+external setMillisecondsf: (Js.Date.t, float) => Js.Date.t = "date-fns/setMilliseconds"
+@module
+external subMilliseconds: (Js.Date.t, int) => Js.Date.t = "date-fns/subMilliseconds"
+@module
+external subMillisecondsf: (Js.Date.t, float) => Js.Date.t = "date-fns/subMilliseconds"
 
 // Second Helpers
-@module("date-fns") external addSeconds: (Js.Date.t, int) => Js.Date.t = "addSeconds"
-@module("date-fns") external addSecondsf: (Js.Date.t, float) => Js.Date.t = "addSeconds"
-@module("date-fns")
-external differenceInSeconds: (Js.Date.t, Js.Date.t) => int = "differenceInSeconds"
-@module("date-fns")
-external differenceInSecondsf: (Js.Date.t, Js.Date.t) => float = "differenceInSeconds"
-@module("date-fns") external endOfSecond: Js.Date.t => Js.Date.t = "endOfSecond"
-@module("date-fns") external getSeconds: Js.Date.t => int = "getSeconds"
-@module("date-fns") external getSecondsf: Js.Date.t => float = "getSeconds"
-@module("date-fns") external isSameSecond: (Js.Date.t, Js.Date.t) => bool = "isSameSecond"
-@module("date-fns") external isThisSecond: Js.Date.t => bool = "isThisSecond"
-@module("date-fns") external setSeconds: (Js.Date.t, int) => Js.Date.t = "setSeconds"
-@module("date-fns") external setSecondsf: (Js.Date.t, float) => Js.Date.t = "setSeconds"
-@module("date-fns") external startOfSecond: Js.Date.t => Js.Date.t = "startOfSecond"
-@module("date-fns") external subSeconds: (Js.Date.t, int) => Js.Date.t = "subSeconds"
-@module("date-fns") external subSecondsf: (Js.Date.t, float) => Js.Date.t = "subSeconds"
+@module external addSeconds: (Js.Date.t, int) => Js.Date.t = "date-fns/addSeconds"
+@module external addSecondsf: (Js.Date.t, float) => Js.Date.t = "date-fns/addSeconds"
+@module
+external differenceInSeconds: (Js.Date.t, Js.Date.t) => int = "date-fns/differenceInSeconds"
+@module
+external differenceInSecondsf: (Js.Date.t, Js.Date.t) => float = "date-fns/differenceInSeconds"
+@module external endOfSecond: Js.Date.t => Js.Date.t = "date-fns/endOfSecond"
+@module external getSeconds: Js.Date.t => int = "date-fns/getSeconds"
+@module external getSecondsf: Js.Date.t => float = "date-fns/getSeconds"
+@module external isSameSecond: (Js.Date.t, Js.Date.t) => bool = "date-fns/isSameSecond"
+@module external isThisSecond: Js.Date.t => bool = "date-fns/isThisSecond"
+@module external setSeconds: (Js.Date.t, int) => Js.Date.t = "date-fns/setSeconds"
+@module external setSecondsf: (Js.Date.t, float) => Js.Date.t = "date-fns/setSeconds"
+@module external startOfSecond: Js.Date.t => Js.Date.t = "date-fns/startOfSecond"
+@module external subSeconds: (Js.Date.t, int) => Js.Date.t = "date-fns/subSeconds"
+@module external subSecondsf: (Js.Date.t, float) => Js.Date.t = "date-fns/subSeconds"
 
 // Minute Helpers
-@module("date-fns") external addMinutes: (Js.Date.t, int) => Js.Date.t = "addMinutes"
-@module("date-fns") external addMinutesf: (Js.Date.t, float) => Js.Date.t = "addMinutes"
-@module("date-fns")
-external differenceInMinutes: (Js.Date.t, Js.Date.t) => int = "differenceInMinutes"
-@module("date-fns")
-external differenceInMinutesf: (Js.Date.t, Js.Date.t) => float = "differenceInMinutes"
-@module("date-fns") external endOfMinute: Js.Date.t => Js.Date.t = "endOfMinute"
-@module("date-fns") external getMinutes: Js.Date.t => int = "getMinutes"
-@module("date-fns") external getMinutesf: Js.Date.t => float = "getMinutes"
-@module("date-fns") external isSameMinute: (Js.Date.t, Js.Date.t) => bool = "isSameMinute"
-@module("date-fns") external isThisMinute: Js.Date.t => bool = "isThisMinute"
+@module external addMinutes: (Js.Date.t, int) => Js.Date.t = "date-fns/addMinutes"
+@module external addMinutesf: (Js.Date.t, float) => Js.Date.t = "date-fns/addMinutes"
+@module
+external differenceInMinutes: (Js.Date.t, Js.Date.t) => int = "date-fns/differenceInMinutes"
+@module
+external differenceInMinutesf: (Js.Date.t, Js.Date.t) => float = "date-fns/differenceInMinutes"
+@module external endOfMinute: Js.Date.t => Js.Date.t = "date-fns/endOfMinute"
+@module external getMinutes: Js.Date.t => int = "date-fns/getMinutes"
+@module external getMinutesf: Js.Date.t => float = "date-fns/getMinutes"
+@module external isSameMinute: (Js.Date.t, Js.Date.t) => bool = "date-fns/isSameMinute"
+@module external isThisMinute: Js.Date.t => bool = "date-fns/isThisMinute"
 
-@module("date-fns")
-external roundToNearestMinutes: Js.Date.t => Js.Date.t = "roundToNearestMinutes"
+@module
+external roundToNearestMinutes: Js.Date.t => Js.Date.t = "date-fns/roundToNearestMinutes"
 type roundToNearestMinutesOptions = {nearestTo: option<int>}
 
-@module("date-fns")
+@module
 external roundToNearestMinutesOpt: (Js.Date.t, roundToNearestMinutesOptions) => Js.Date.t =
-  "roundToNearestMinutes"
-@module("date-fns") external setMinutes: (Js.Date.t, int) => Js.Date.t = "setMinutes"
-@module("date-fns") external startOfMinute: Js.Date.t => Js.Date.t = "startOfMinute"
-@module("date-fns") external subMinutes: (Js.Date.t, int) => Js.Date.t = "subMinutes"
-@module("date-fns") external subMinutesf: (Js.Date.t, float) => Js.Date.t = "subMinutes"
+  "date-fns/roundToNearestMinutes"
+@module external setMinutes: (Js.Date.t, int) => Js.Date.t = "date-fns/setMinutes"
+@module external startOfMinute: Js.Date.t => Js.Date.t = "date-fns/startOfMinute"
+@module external subMinutes: (Js.Date.t, int) => Js.Date.t = "date-fns/subMinutes"
+@module external subMinutesf: (Js.Date.t, float) => Js.Date.t = "date-fns/subMinutes"
 
 // Hour Helpers
-@module("date-fns") external addHours: (Js.Date.t, int) => Js.Date.t = "addHours"
-@module("date-fns") external addHoursf: (Js.Date.t, float) => Js.Date.t = "addHours"
-@module("date-fns")
-external differenceInHours: (Js.Date.t, Js.Date.t) => int = "differenceInHours"
-@module("date-fns")
-external differenceInHoursf: (Js.Date.t, Js.Date.t) => float = "differenceInHours"
-@module("date-fns") external endOfHour: Js.Date.t => Js.Date.t = "endOfHour"
-@module("date-fns") external getHours: Js.Date.t => int = "getHours"
-@module("date-fns") external getHoursf: Js.Date.t => float = "getHours"
-@module("date-fns") external isSameHour: (Js.Date.t, Js.Date.t) => bool = "isSameHour"
-@module("date-fns") external isThisHour: Js.Date.t => bool = "isThisHour"
-@module("date-fns") external setHours: (Js.Date.t, int) => Js.Date.t = "setHours"
-@module("date-fns") external setHoursf: (Js.Date.t, float) => Js.Date.t = "setHours"
-@module("date-fns") external startOfHour: Js.Date.t => Js.Date.t = "startOfHour"
-@module("date-fns") external subHours: (Js.Date.t, int) => Js.Date.t = "subHours"
-@module("date-fns") external subHoursf: (Js.Date.t, float) => Js.Date.t = "subHours"
+@module external addHours: (Js.Date.t, int) => Js.Date.t = "date-fns/addHours"
+@module external addHoursf: (Js.Date.t, float) => Js.Date.t = "date-fns/addHours"
+@module
+external differenceInHours: (Js.Date.t, Js.Date.t) => int = "date-fns/differenceInHours"
+@module
+external differenceInHoursf: (Js.Date.t, Js.Date.t) => float = "date-fns/differenceInHours"
+@module external endOfHour: Js.Date.t => Js.Date.t = "date-fns/endOfHour"
+@module external getHours: Js.Date.t => int = "date-fns/getHours"
+@module external getHoursf: Js.Date.t => float = "date-fns/getHours"
+@module external isSameHour: (Js.Date.t, Js.Date.t) => bool = "date-fns/isSameHour"
+@module external isThisHour: Js.Date.t => bool = "date-fns/isThisHour"
+@module external setHours: (Js.Date.t, int) => Js.Date.t = "date-fns/setHours"
+@module external setHoursf: (Js.Date.t, float) => Js.Date.t = "date-fns/setHours"
+@module external startOfHour: Js.Date.t => Js.Date.t = "date-fns/startOfHour"
+@module external subHours: (Js.Date.t, int) => Js.Date.t = "date-fns/subHours"
+@module external subHoursf: (Js.Date.t, float) => Js.Date.t = "date-fns/subHours"
 
 // Day Helpers
-@module("date-fns")
-external addBusinessDays: (Js.Date.t, int) => Js.Date.t = "addBusinessDays"
-@module("date-fns")
-external addBusinessDaysf: (Js.Date.t, float) => Js.Date.t = "addBusinessDays"
-@module("date-fns") external addDays: (Js.Date.t, int) => Js.Date.t = "addDays"
-@module("date-fns") external addDaysf: (Js.Date.t, float) => Js.Date.t = "addDays"
-@module("date-fns")
-external differenceInBusinessDays: (Js.Date.t, Js.Date.t) => int = "differenceInBusinessDays"
-@module("date-fns")
-external differenceInBusinessDaysf: (Js.Date.t, Js.Date.t) => float = "differenceInBusinessDays"
-@module("date-fns")
-external differenceInCalendarDays: (Js.Date.t, Js.Date.t) => int = "differenceInCalendarDays"
-@module("date-fns")
-external differenceInCalendarDaysf: (Js.Date.t, Js.Date.t) => float = "differenceInCalendarDays"
-@module("date-fns")
-external differenceInDays: (Js.Date.t, Js.Date.t) => int = "differenceInDays"
-@module("date-fns")
-external differenceInDaysf: (Js.Date.t, Js.Date.t) => float = "differenceInDays"
-@module("date-fns") external endOfDay: Js.Date.t => Js.Date.t = "endOfDay"
-@module("date-fns") external endOfToday: unit => Js.Date.t = "endOfToday"
-@module("date-fns") external endOfTomorrow: unit => Js.Date.t = "endOfTomorrow"
-@module("date-fns") external endOfYesterday: unit => Js.Date.t = "endOfYesterday"
-@module("date-fns") external getDate: Js.Date.t => int = "getDate"
-@module("date-fns") external getDatef: Js.Date.t => float = "getDate"
-@module("date-fns") external getDayOfYear: Js.Date.t => int = "getDayOfYear"
-@module("date-fns") external getDayOfYearf: Js.Date.t => float = "getDayOfYear"
-@module("date-fns") external isSameDay: (Js.Date.t, Js.Date.t) => bool = "isSameDay"
-@module("date-fns") external isToday: Js.Date.t => bool = "isToday"
-@module("date-fns") external isTomorrow: Js.Date.t => bool = "isTomorrow"
-@module("date-fns") external isYesterday: Js.Date.t => bool = "isYesterday"
-@module("date-fns") external setDate: (Js.Date.t, int) => Js.Date.t = "setDate"
-@module("date-fns") external setDatef: (Js.Date.t, float) => Js.Date.t = "setDate"
-@module("date-fns") external setDayOfYear: (Js.Date.t, int) => Js.Date.t = "setDayOfYear"
-@module("date-fns") external setDayOfYearf: (Js.Date.t, float) => Js.Date.t = "setDayOfYear"
-@module("date-fns") external startOfDay: Js.Date.t => Js.Date.t = "startOfDay"
-@module("date-fns") external startOfToday: unit => Js.Date.t = "startOfToday"
-@module("date-fns") external startOfTomorrow: unit => Js.Date.t = "startOfTomorrow"
-@module("date-fns") external startOfYesterday: unit => Js.Date.t = "startOfYesterday"
-@module("date-fns")
-external subBusinessDays: (Js.Date.t, int) => Js.Date.t = "subBusinessDays"
-@module("date-fns")
-external subBusinessDaysf: (Js.Date.t, float) => Js.Date.t = "subBusinessDays"
-@module("date-fns/subDays") external subDays: (Js.Date.t, int) => Js.Date.t = "default"
-@module("date-fns/subDays") external subDaysf: (Js.Date.t, float) => Js.Date.t = "default"
+@module
+external addBusinessDays: (Js.Date.t, int) => Js.Date.t = "date-fns/addBusinessDays"
+@module
+external addBusinessDaysf: (Js.Date.t, float) => Js.Date.t = "date-fns/addBusinessDays"
+@module external addDays: (Js.Date.t, int) => Js.Date.t = "date-fns/addDays"
+@module external addDaysf: (Js.Date.t, float) => Js.Date.t = "date-fns/addDays"
+@module
+external differenceInBusinessDays: (Js.Date.t, Js.Date.t) => int =
+  "date-fns/differenceInBusinessDays"
+@module
+external differenceInBusinessDaysf: (Js.Date.t, Js.Date.t) => float =
+  "date-fns/differenceInBusinessDays"
+@module
+external differenceInCalendarDays: (Js.Date.t, Js.Date.t) => int =
+  "date-fns/differenceInCalendarDays"
+@module
+external differenceInCalendarDaysf: (Js.Date.t, Js.Date.t) => float =
+  "date-fns/differenceInCalendarDays"
+@module
+external differenceInDays: (Js.Date.t, Js.Date.t) => int = "date-fns/differenceInDays"
+@module
+external differenceInDaysf: (Js.Date.t, Js.Date.t) => float = "date-fns/differenceInDays"
+@module external endOfDay: Js.Date.t => Js.Date.t = "date-fns/endOfDay"
+@module external endOfToday: unit => Js.Date.t = "date-fns/endOfToday"
+@module external endOfTomorrow: unit => Js.Date.t = "date-fns/endOfTomorrow"
+@module external endOfYesterday: unit => Js.Date.t = "date-fns/endOfYesterday"
+@module external getDate: Js.Date.t => int = "date-fns/getDate"
+@module external getDatef: Js.Date.t => float = "date-fns/getDate"
+@module external getDayOfYear: Js.Date.t => int = "date-fns/getDayOfYear"
+@module external getDayOfYearf: Js.Date.t => float = "date-fns/getDayOfYear"
+@module external isSameDay: (Js.Date.t, Js.Date.t) => bool = "date-fns/isSameDay"
+@module external isToday: Js.Date.t => bool = "date-fns/isToday"
+@module external isTomorrow: Js.Date.t => bool = "date-fns/isTomorrow"
+@module external isYesterday: Js.Date.t => bool = "date-fns/isYesterday"
+@module external setDate: (Js.Date.t, int) => Js.Date.t = "date-fns/setDate"
+@module external setDatef: (Js.Date.t, float) => Js.Date.t = "date-fns/setDate"
+@module external setDayOfYear: (Js.Date.t, int) => Js.Date.t = "date-fns/setDayOfYear"
+@module external setDayOfYearf: (Js.Date.t, float) => Js.Date.t = "date-fns/setDayOfYear"
+@module external startOfDay: Js.Date.t => Js.Date.t = "date-fns/startOfDay"
+@module external startOfToday: unit => Js.Date.t = "date-fns/startOfToday"
+@module external startOfTomorrow: unit => Js.Date.t = "date-fns/startOfTomorrow"
+@module external startOfYesterday: unit => Js.Date.t = "date-fns/startOfYesterday"
+@module
+external subBusinessDays: (Js.Date.t, int) => Js.Date.t = "date-fns/subBusinessDays"
+@module
+external subBusinessDaysf: (Js.Date.t, float) => Js.Date.t = "date-fns/subBusinessDays"
+@module external subDays: (Js.Date.t, int) => Js.Date.t = "date-fns/subDays"
+@module external subDaysf: (Js.Date.t, float) => Js.Date.t = "date-fns/subDays"
 
 // Weekday Helpers
-@module("date-fns") external getDay: Js.Date.t => int = "getDay"
-@module("date-fns") external getDayf: Js.Date.t => float = "getDay"
-@module("date-fns") external getISODay: Js.Date.t => int = "getISODay"
-@module("date-fns") external getISODayf: Js.Date.t => float = "getISODay"
-@module("date-fns") external isFriday: Js.Date.t => bool = "isFriday"
-@module("date-fns") external isMonday: Js.Date.t => bool = "isMonday"
-@module("date-fns") external isSaturday: Js.Date.t => bool = "isSaturday"
-@module("date-fns") external isSunday: Js.Date.t => bool = "isSunday"
-@module("date-fns") external isThursday: Js.Date.t => bool = "isThursday"
-@module("date-fns") external isTuesday: Js.Date.t => bool = "isTuesday"
-@module("date-fns") external isWednesday: Js.Date.t => bool = "isWednesday"
-@module("date-fns") external isWeekend: Js.Date.t => bool = "isWeekend"
-@module("date-fns") external setDay: (Js.Date.t, int) => Js.Date.t = "setDay"
-@module("date-fns") external setDayf: (Js.Date.t, float) => Js.Date.t = "setDay"
+@module external getDay: Js.Date.t => int = "date-fns/getDay"
+@module external getDayf: Js.Date.t => float = "date-fns/getDay"
+@module external getISODay: Js.Date.t => int = "date-fns/getISODay"
+@module external getISODayf: Js.Date.t => float = "date-fns/getISODay"
+@module external isFriday: Js.Date.t => bool = "date-fns/isFriday"
+@module external isMonday: Js.Date.t => bool = "date-fns/isMonday"
+@module external isSaturday: Js.Date.t => bool = "date-fns/isSaturday"
+@module external isSunday: Js.Date.t => bool = "date-fns/isSunday"
+@module external isThursday: Js.Date.t => bool = "date-fns/isThursday"
+@module external isTuesday: Js.Date.t => bool = "date-fns/isTuesday"
+@module external isWednesday: Js.Date.t => bool = "date-fns/isWednesday"
+@module external isWeekend: Js.Date.t => bool = "date-fns/isWeekend"
+@module external setDay: (Js.Date.t, int) => Js.Date.t = "date-fns/setDay"
+@module external setDayf: (Js.Date.t, float) => Js.Date.t = "date-fns/setDay"
 type setDayOptions = {
   locale: option<locale>,
   weekStartsOn: option<int>,
 }
-@module("date-fns")
-external setDayOpt: (Js.Date.t, int, setDayOptions) => Js.Date.t = "setDay"
-@module("date-fns")
-external setDayOptf: (Js.Date.t, float, setDayOptions) => Js.Date.t = "setDay"
-@module("date-fns") external setISODay: (Js.Date.t, int) => Js.Date.t = "setISODay"
-@module("date-fns") external setISODayf: (Js.Date.t, float) => Js.Date.t = "setISODay"
+@module
+external setDayOpt: (Js.Date.t, int, setDayOptions) => Js.Date.t = "date-fns/setDay"
+@module
+external setDayOptf: (Js.Date.t, float, setDayOptions) => Js.Date.t = "date-fns/setDay"
+@module external setISODay: (Js.Date.t, int) => Js.Date.t = "date-fns/setISODay"
+@module external setISODayf: (Js.Date.t, float) => Js.Date.t = "date-fns/setISODay"
 
 // Week Helpers
 type weekOptions = {
   locale: option<locale>,
   weekStartsOn: option<int>,
 }
-@module("date-fns") external addWeeks: (Js.Date.t, int) => Js.Date.t = "addWeeks"
-@module("date-fns") external addWeeksf: (Js.Date.t, float) => Js.Date.t = "addWeeks"
+@module external addWeeks: (Js.Date.t, int) => Js.Date.t = "date-fns/addWeeks"
+@module external addWeeksf: (Js.Date.t, float) => Js.Date.t = "date-fns/addWeeks"
 
-@module("date-fns")
-external differenceInCalendarWeeks: (Js.Date.t, Js.Date.t) => int = "differenceInCalendarWeeks"
+@module
+external differenceInCalendarWeeks: (Js.Date.t, Js.Date.t) => int =
+  "date-fns/differenceInCalendarWeeks"
 
-@module("date-fns")
+@module
 external differenceInCalendarWeeksOpt: (Js.Date.t, Js.Date.t, weekOptions) => int =
-  "differenceInCalendarWeeks"
+  "date-fns/differenceInCalendarWeeks"
 
-@module("date-fns")
-external differenceInCalendarWeeksf: (Js.Date.t, Js.Date.t) => float = "differenceInCalendarWeeks"
+@module
+external differenceInCalendarWeeksf: (Js.Date.t, Js.Date.t) => float =
+  "date-fns/differenceInCalendarWeeks"
 
-@module("date-fns")
+@module
 external differenceInCalendarWeeksOptf: (Js.Date.t, Js.Date.t, weekOptions) => float =
-  "differenceInCalendarWeeks"
+  "date-fns/differenceInCalendarWeeks"
 
-@module("date-fns")
-external differenceInWeeks: (Js.Date.t, Js.Date.t) => int = "differenceInWeeks"
-@module("date-fns")
-external differenceInWeeksf: (Js.Date.t, Js.Date.t) => float = "differenceInWeeks"
-@module("date-fns") external endOfWeek: Js.Date.t => Js.Date.t = "endOfWeek"
-@module("date-fns")
-external endOfWeekOpt: (Js.Date.t, weekOptions) => Js.Date.t = "endOfWeek"
+@module
+external differenceInWeeks: (Js.Date.t, Js.Date.t) => int = "date-fns/differenceInWeeks"
+@module
+external differenceInWeeksf: (Js.Date.t, Js.Date.t) => float = "date-fns/differenceInWeeks"
+@module external endOfWeek: Js.Date.t => Js.Date.t = "date-fns/endOfWeek"
+@module
+external endOfWeekOpt: (Js.Date.t, weekOptions) => Js.Date.t = "date-fns/endOfWeek"
 
-@module("date-fns") external getWeek: Js.Date.t => int = "getWeek"
-@module("date-fns") external getWeekf: Js.Date.t => float = "getWeek"
+@module external getWeek: Js.Date.t => int = "date-fns/getWeek"
+@module external getWeekf: Js.Date.t => float = "date-fns/getWeek"
 type getWeekOptions = {
   locale: option<locale>,
   weekStartsOn: option<int>,
   firstWeekContainsDate: option<int>,
 }
-@module("date-fns") external getWeekOpt: (Js.Date.t, getWeekOptions) => int = "getWeek"
-@module("date-fns") external getWeekOptf: (Js.Date.t, getWeekOptions) => float = "getWeek"
-@module("date-fns") external getWeekOfMonth: Js.Date.t => int = "getWeekOfMonth"
+@module external getWeekOpt: (Js.Date.t, getWeekOptions) => int = "date-fns/getWeek"
+@module external getWeekOptf: (Js.Date.t, getWeekOptions) => float = "date-fns/getWeek"
+@module external getWeekOfMonth: Js.Date.t => int = "date-fns/getWeekOfMonth"
 
-@module("date-fns") external getWeekOfMonthf: Js.Date.t => float = "getWeekOfMonth"
+@module external getWeekOfMonthf: Js.Date.t => float = "date-fns/getWeekOfMonth"
 external getWeekOfMonthOpt: (Js.Date.t, weekOptions) => int = "date-fns/getWeekOfMonth"
 
-@module("date-fns")
-external getWeekOfMonthOptf: (Js.Date.t, weekOptions) => float = "getWeekOfMonth"
-@module("date-fns") external getWeeksInMonth: Js.Date.t => int = "getWeeksInMonth"
-@module("date-fns") external getWeeksInMonthf: Js.Date.t => float = "getWeeksInMonth"
+@module
+external getWeekOfMonthOptf: (Js.Date.t, weekOptions) => float = "date-fns/getWeekOfMonth"
+@module external getWeeksInMonth: Js.Date.t => int = "date-fns/getWeeksInMonth"
+@module external getWeeksInMonthf: Js.Date.t => float = "date-fns/getWeeksInMonth"
 external getWeeksInMonthOpt: (Js.Date.t, weekOptions) => int = "date-fns/getWeeksInMonth"
-@module("date-fns")
-external getWeeksInMonthOptf: (Js.Date.t, weekOptions) => float = "getWeeksInMonth"
+@module
+external getWeeksInMonthOptf: (Js.Date.t, weekOptions) => float = "date-fns/getWeeksInMonth"
 
-@module("date-fns") external isSameWeek: (Js.Date.t, Js.Date.t) => bool = "isSameWeek"
-@module("date-fns")
-external isSameWeekOpt: (Js.Date.t, Js.Date.t, weekOptions) => bool = "isSameWeek"
-@module("date-fns") external isThisWeek: Js.Date.t => bool = "isThisWeek"
-@module("date-fns") external isThisWeekOpt: (Js.Date.t, weekOptions) => bool = "isThisWeek"
-@module("date-fns") external lastDayOfWeek: Js.Date.t = "lastDayOfWeek"
-@module("date-fns") external lastDayOfWeekOpt: (Js.Date.t, weekOptions) = "lastDayOfWeek"
-@module("date-fns") external setWeek: (Js.Date.t, int) => Js.Date.t = "setWeek"
-@module("date-fns") external setWeekf: (Js.Date.t, float) => Js.Date.t = "setWeek"
+@module external isSameWeek: (Js.Date.t, Js.Date.t) => bool = "date-fns/isSameWeek"
+@module
+external isSameWeekOpt: (Js.Date.t, Js.Date.t, weekOptions) => bool = "date-fns/isSameWeek"
+@module external isThisWeek: Js.Date.t => bool = "date-fns/isThisWeek"
+@module external isThisWeekOpt: (Js.Date.t, weekOptions) => bool = "date-fns/isThisWeek"
+@module external lastDayOfWeek: Js.Date.t = "date-fns/lastDayOfWeek"
+@module external lastDayOfWeekOpt: (Js.Date.t, weekOptions) = "date-fns/lastDayOfWeek"
+@module external setWeek: (Js.Date.t, int) => Js.Date.t = "date-fns/setWeek"
+@module external setWeekf: (Js.Date.t, float) => Js.Date.t = "date-fns/setWeek"
 type setWeekOptions = {
   locale: option<locale>,
   weekStartsOn: option<int>,
   firstWeekContainsDate: option<int>,
 }
-@module("date-fns")
-external setWeekOpt: (Js.Date.t, int, setWeekOptions) => Js.Date.t = "setWeek"
-@module("date-fns")
-external setWeekOptf: (Js.Date.t, float, setWeekOptions) => Js.Date.t = "setWeek"
-@module("date-fns") external startOfWeek: Js.Date.t => Js.Date.t = "startOfWeek"
-@module("date-fns")
-external startOfWeekOpt: (Js.Date.t, weekOptions) => Js.Date.t = "startOfWeek"
-@module("date-fns") external subWeeks: (Js.Date.t, int) => Js.Date.t = "subWeeks"
-@module("date-fns") external subWeeksf: (Js.Date.t, float) => Js.Date.t = "subWeeks"
+@module
+external setWeekOpt: (Js.Date.t, int, setWeekOptions) => Js.Date.t = "date-fns/setWeek"
+@module
+external setWeekOptf: (Js.Date.t, float, setWeekOptions) => Js.Date.t = "date-fns/setWeek"
+@module external startOfWeek: Js.Date.t => Js.Date.t = "date-fns/startOfWeek"
+@module
+external startOfWeekOpt: (Js.Date.t, weekOptions) => Js.Date.t = "date-fns/startOfWeek"
+@module external subWeeks: (Js.Date.t, int) => Js.Date.t = "date-fns/subWeeks"
+@module external subWeeksf: (Js.Date.t, float) => Js.Date.t = "date-fns/subWeeks"
 
 // ISO Week Helpers
-@module("date-fns")
+@module
 external differenceInCalendarISOWeeks: (Js.Date.t, Js.Date.t) => int =
-  "differenceInCalendarISOWeeks"
-@module("date-fns")
+  "date-fns/differenceInCalendarISOWeeks"
+@module
 external differenceInCalendarISOWeeksf: (Js.Date.t, Js.Date.t) => float =
-  "differenceInCalendarISOWeeks"
-@module("date-fns") external endOfISOWeek: Js.Date.t => Js.Date.t = "endOfISOWeek"
-@module("date-fns") external getISOWeek: Js.Date.t => int = "getISOWeek"
-@module("date-fns") external getISOWeekf: Js.Date.t => float = "getISOWeek"
-@module("date-fns") external isSameISOWeek: (Js.Date.t, Js.Date.t) => bool = "isSameISOWeek"
-@module("date-fns") external isThisISOWeek: Js.Date.t => bool = "isThisISOWeek"
-@module("date-fns") external lastDayOfISOWeek: Js.Date.t => Js.Date.t = "lastDayOfISOWeek"
-@module("date-fns") external setISOWeek: (Js.Date.t, int) => Js.Date.t = "setISOWeek"
-@module("date-fns") external setISOWeekf: (Js.Date.t, float) => Js.Date.t = "setISOWeek"
-@module("date-fns") external startOfISOWeek: Js.Date.t => Js.Date.t = "startOfISOWeek"
+  "date-fns/differenceInCalendarISOWeeks"
+@module external endOfISOWeek: Js.Date.t => Js.Date.t = "date-fns/endOfISOWeek"
+@module external getISOWeek: Js.Date.t => int = "date-fns/getISOWeek"
+@module external getISOWeekf: Js.Date.t => float = "date-fns/getISOWeek"
+@module external isSameISOWeek: (Js.Date.t, Js.Date.t) => bool = "date-fns/isSameISOWeek"
+@module external isThisISOWeek: Js.Date.t => bool = "date-fns/isThisISOWeek"
+@module external lastDayOfISOWeek: Js.Date.t => Js.Date.t = "date-fns/lastDayOfISOWeek"
+@module external setISOWeek: (Js.Date.t, int) => Js.Date.t = "date-fns/setISOWeek"
+@module external setISOWeekf: (Js.Date.t, float) => Js.Date.t = "date-fns/setISOWeek"
+@module external startOfISOWeek: Js.Date.t => Js.Date.t = "date-fns/startOfISOWeek"
 
 // Month Helpers
-@module("date-fns") external addMonths: (Js.Date.t, int) => Js.Date.t = "addMonths"
-@module("date-fns") external addMonthsf: (Js.Date.t, float) => Js.Date.t = "addMonths"
-@module("date-fns")
-external differenceInCalendarMonths: (Js.Date.t, Js.Date.t) => int = "differenceInCalendarMonths"
-@module("date-fns")
-external differenceInCalendarMonthsf: (Js.Date.t, Js.Date.t) => float = "differenceInCalendarMonths"
-@module("date-fns")
-external differenceInMonths: (Js.Date.t, Js.Date.t) => int = "differenceInMonths"
-@module("date-fns")
-external differenceInMonthsf: (Js.Date.t, Js.Date.t) => float = "differenceInMonths"
-@module("date-fns")
-external eachWeekendOfMonth: Js.Date.t => array<Js.Date.t> = "eachWeekendOfMonth"
+@module external addMonths: (Js.Date.t, int) => Js.Date.t = "date-fns/addMonths"
+@module external addMonthsf: (Js.Date.t, float) => Js.Date.t = "date-fns/addMonths"
+@module
+external differenceInCalendarMonths: (Js.Date.t, Js.Date.t) => int =
+  "date-fns/differenceInCalendarMonths"
+@module
+external differenceInCalendarMonthsf: (Js.Date.t, Js.Date.t) => float =
+  "date-fns/differenceInCalendarMonths"
+@module
+external differenceInMonths: (Js.Date.t, Js.Date.t) => int = "date-fns/differenceInMonths"
+@module
+external differenceInMonthsf: (Js.Date.t, Js.Date.t) => float = "date-fns/differenceInMonths"
+@module
+external eachWeekendOfMonth: Js.Date.t => array<Js.Date.t> = "date-fns/eachWeekendOfMonth"
 
-@module("date-fns") external endOfMonth: Js.Date.t => Js.Date.t = "endOfMonth"
-@module("date-fns") external getDaysInMonth: Js.Date.t => int = "getDaysInMonth"
-@module("date-fns") external getDaysInMonthf: Js.Date.t => float = "getDaysInMonth"
-@module("date-fns") external getMonth: Js.Date.t => int = "getMonth"
-@module("date-fns") external getMonthf: Js.Date.t => float = "getMonth"
-@module("date-fns") external isFirstDayOfMonth: Js.Date.t => bool = "isFirstDayOfMonth"
-@module("date-fns") external isLastDayOfMonth: Js.Date.t => bool = "isLastDayOfMonth"
-@module("date-fns") external isSameMonth: (Js.Date.t, Js.Date.t) => bool = "isSameMonth"
-@module("date-fns") external isThisMonth: Js.Date.t => bool = "isThisMonth"
-@module("date-fns") external lastDayOfMonth: Js.Date.t => Js.Date.t = "lastDayOfMonth"
-@module("date-fns") external setMonth: (Js.Date.t, int) => Js.Date.t = "setMonth"
-@module("date-fns") external setMonthf: (Js.Date.t, float) => Js.Date.t = "setMonth"
-@module("date-fns") external startOfMonth: Js.Date.t => Js.Date.t = "startOfMonth"
-@module("date-fns") external subMonths: (Js.Date.t, int) => Js.Date.t = "subMonths"
-@module("date-fns") external subMonthsf: (Js.Date.t, float) => Js.Date.t = "subMonths"
+@module external endOfMonth: Js.Date.t => Js.Date.t = "date-fns/endOfMonth"
+@module external getDaysInMonth: Js.Date.t => int = "date-fns/getDaysInMonth"
+@module external getDaysInMonthf: Js.Date.t => float = "date-fns/getDaysInMonth"
+@module external getMonth: Js.Date.t => int = "date-fns/getMonth"
+@module external getMonthf: Js.Date.t => float = "date-fns/getMonth"
+@module external isFirstDayOfMonth: Js.Date.t => bool = "date-fns/isFirstDayOfMonth"
+@module external isLastDayOfMonth: Js.Date.t => bool = "date-fns/isLastDayOfMonth"
+@module external isSameMonth: (Js.Date.t, Js.Date.t) => bool = "date-fns/isSameMonth"
+@module external isThisMonth: Js.Date.t => bool = "date-fns/isThisMonth"
+@module external lastDayOfMonth: Js.Date.t => Js.Date.t = "date-fns/lastDayOfMonth"
+@module external setMonth: (Js.Date.t, int) => Js.Date.t = "date-fns/setMonth"
+@module external setMonthf: (Js.Date.t, float) => Js.Date.t = "date-fns/setMonth"
+@module external startOfMonth: Js.Date.t => Js.Date.t = "date-fns/startOfMonth"
+@module external subMonths: (Js.Date.t, int) => Js.Date.t = "date-fns/subMonths"
+@module external subMonthsf: (Js.Date.t, float) => Js.Date.t = "date-fns/subMonths"
 
 // Quarter Helpers
-@module("date-fns") external addQuarters: (Js.Date.t, int) => Js.Date.t = "addQuarters"
-@module("date-fns") external addQuartersf: (Js.Date.t, float) => Js.Date.t = "addQuarters"
-@module("date-fns")
+@module external addQuarters: (Js.Date.t, int) => Js.Date.t = "date-fns/addQuarters"
+@module external addQuartersf: (Js.Date.t, float) => Js.Date.t = "date-fns/addQuarters"
+@module
 external differenceInCalendarQuarters: (Js.Date.t, Js.Date.t) => int =
-  "differenceInCalendarQuarters"
-@module("date-fns")
+  "date-fns/differenceInCalendarQuarters"
+@module
 external differenceInCalendarQuartersf: (Js.Date.t, Js.Date.t) => float =
-  "differenceInCalendarQuarters"
-@module("date-fns")
-external differenceInQuarters: (Js.Date.t, Js.Date.t) => int = "differenceInQuarters"
-@module("date-fns")
-external differenceInQuartersf: (Js.Date.t, Js.Date.t) => float = "differenceInQuarters"
-@module("date-fns") external endOfQuarter: Js.Date.t => Js.Date.t = "endOfQuarter"
-@module("date-fns") external getQuarter: Js.Date.t => int = "getQuarter"
-@module("date-fns") external getQuarterf: Js.Date.t => float = "getQuarter"
-@module("date-fns") external isSameQuarter: (Js.Date.t, Js.Date.t) => bool = "isSameQuarter"
-@module("date-fns") external isThisQuarter: Js.Date.t => bool = "isThisQuarter"
-@module("date-fns") external lastDayOfQuarter: Js.Date.t => Js.Date.t = "lastDayOfQuarter"
+  "date-fns/differenceInCalendarQuarters"
+@module
+external differenceInQuarters: (Js.Date.t, Js.Date.t) => int = "date-fns/differenceInQuarters"
+@module
+external differenceInQuartersf: (Js.Date.t, Js.Date.t) => float = "date-fns/differenceInQuarters"
+@module external endOfQuarter: Js.Date.t => Js.Date.t = "date-fns/endOfQuarter"
+@module external getQuarter: Js.Date.t => int = "date-fns/getQuarter"
+@module external getQuarterf: Js.Date.t => float = "date-fns/getQuarter"
+@module external isSameQuarter: (Js.Date.t, Js.Date.t) => bool = "date-fns/isSameQuarter"
+@module external isThisQuarter: Js.Date.t => bool = "date-fns/isThisQuarter"
+@module external lastDayOfQuarter: Js.Date.t => Js.Date.t = "date-fns/lastDayOfQuarter"
 type lastDayOfQuarterOptions = {additionalDigits: option<int>}
 
-@module("date-fns")
-external lastDayOfQuarterOpt: (Js.Date.t, lastDayOfQuarterOptions) => Js.Date.t = "lastDayOfQuarter"
-@module("date-fns") external setQuarter: (Js.Date.t, int) => Js.Date.t = "setQuarter"
-@module("date-fns") external setQuarterf: (Js.Date.t, float) => Js.Date.t = "setQuarter"
-@module("date-fns") external startOfQuarter: Js.Date.t => Js.Date.t = "startOfQuarter"
-@module("date-fns") external subQuarters: (Js.Date.t, int) => Js.Date.t = "subQuarters"
-@module("date-fns") external subQuartersf: (Js.Date.t, float) => Js.Date.t = "subQuarters"
+@module
+external lastDayOfQuarterOpt: (Js.Date.t, lastDayOfQuarterOptions) => Js.Date.t =
+  "date-fns/lastDayOfQuarter"
+@module external setQuarter: (Js.Date.t, int) => Js.Date.t = "date-fns/setQuarter"
+@module external setQuarterf: (Js.Date.t, float) => Js.Date.t = "date-fns/setQuarter"
+@module external startOfQuarter: Js.Date.t => Js.Date.t = "date-fns/startOfQuarter"
+@module external subQuarters: (Js.Date.t, int) => Js.Date.t = "date-fns/subQuarters"
+@module external subQuartersf: (Js.Date.t, float) => Js.Date.t = "date-fns/subQuarters"
 
 // Year Helpers
-@module("date-fns") external addYears: (Js.Date.t, int) => Js.Date.t = "addYears"
-@module("date-fns") external addYearsf: (Js.Date.t, float) => Js.Date.t = "addYears"
-@module("date-fns")
-external differenceInCalendarYears: (Js.Date.t, Js.Date.t) => int = "differenceInCalendarYears"
-@module("date-fns")
-external differenceInCalendarYearsf: (Js.Date.t, Js.Date.t) => float = "differenceInCalendarYears"
-@module("date-fns")
-external differenceInYears: (Js.Date.t, Js.Date.t) => int = "differenceInYears"
-@module("date-fns")
-external differenceInYearsf: (Js.Date.t, Js.Date.t) => float = "differenceInYears"
-@module("date-fns")
-external eachWeekendOfYear: Js.Date.t => array<Js.Date.t> = "eachWeekendOfYear"
-@module("date-fns") external endOfYear: Js.Date.t => Js.Date.t = "endOfYear"
-@module("date-fns") external getDaysInYear: Js.Date.t => int = "getDaysInYear"
-@module("date-fns") external getDaysInYearf: Js.Date.t => float = "getDaysInYear"
-@module("date-fns") external getYear: Js.Date.t => int = "getYear"
-@module("date-fns") external getYearf: Js.Date.t => float = "getYear"
-@module("date-fns") external isLeapYear: Js.Date.t => bool = "isLeapYear"
-@module("date-fns") external isSameYear: (Js.Date.t, Js.Date.t) => bool = "isSameYear"
-@module("date-fns") external isThisYear: Js.Date.t => bool = "isThisYear"
-@module("date-fns") external lastDayOfYear: Js.Date.t => Js.Date.t = "lastDayOfYear"
-@module("date-fns") external setYear: (Js.Date.t, int) => Js.Date.t = "setYear"
-@module("date-fns") external setYearf: (Js.Date.t, float) => Js.Date.t = "setYear"
-@module("date-fns") external startOfYear: Js.Date.t => Js.Date.t = "startOfYear"
-@module("date-fns") external subYears: (Js.Date.t, int) => Js.Date.t = "subYears"
-@module("date-fns") external subYearsf: (Js.Date.t, float) => Js.Date.t = "subYears"
+@module external addYears: (Js.Date.t, int) => Js.Date.t = "date-fns/addYears"
+@module external addYearsf: (Js.Date.t, float) => Js.Date.t = "date-fns/addYears"
+@module
+external differenceInCalendarYears: (Js.Date.t, Js.Date.t) => int =
+  "date-fns/differenceInCalendarYears"
+@module
+external differenceInCalendarYearsf: (Js.Date.t, Js.Date.t) => float =
+  "date-fns/differenceInCalendarYears"
+@module
+external differenceInYears: (Js.Date.t, Js.Date.t) => int = "date-fns/differenceInYears"
+@module
+external differenceInYearsf: (Js.Date.t, Js.Date.t) => float = "date-fns/differenceInYears"
+@module
+external eachWeekendOfYear: Js.Date.t => array<Js.Date.t> = "date-fns/eachWeekendOfYear"
+@module external endOfYear: Js.Date.t => Js.Date.t = "date-fns/endOfYear"
+@module external getDaysInYear: Js.Date.t => int = "date-fns/getDaysInYear"
+@module external getDaysInYearf: Js.Date.t => float = "date-fns/getDaysInYear"
+@module external getYear: Js.Date.t => int = "date-fns/getYear"
+@module external getYearf: Js.Date.t => float = "date-fns/getYear"
+@module external isLeapYear: Js.Date.t => bool = "date-fns/isLeapYear"
+@module external isSameYear: (Js.Date.t, Js.Date.t) => bool = "date-fns/isSameYear"
+@module external isThisYear: Js.Date.t => bool = "date-fns/isThisYear"
+@module external lastDayOfYear: Js.Date.t => Js.Date.t = "date-fns/lastDayOfYear"
+@module external setYear: (Js.Date.t, int) => Js.Date.t = "date-fns/setYear"
+@module external setYearf: (Js.Date.t, float) => Js.Date.t = "date-fns/setYear"
+@module external startOfYear: Js.Date.t => Js.Date.t = "date-fns/startOfYear"
+@module external subYears: (Js.Date.t, int) => Js.Date.t = "date-fns/subYears"
+@module external subYearsf: (Js.Date.t, float) => Js.Date.t = "date-fns/subYears"
 
 // ISO Week-Numbering Year Helpers
-@module("date-fns")
-external addISOWeekYears: (Js.Date.t, int) => Js.Date.t = "addISOWeekYears"
-@module("date-fns")
-external addISOWeekYearsf: (Js.Date.t, float) => Js.Date.t = "addISOWeekYears"
-@module("date-fns")
+@module
+external addISOWeekYears: (Js.Date.t, int) => Js.Date.t = "date-fns/addISOWeekYears"
+@module
+external addISOWeekYearsf: (Js.Date.t, float) => Js.Date.t = "date-fns/addISOWeekYears"
+@module
 external differenceInCalendarISOWeekYears: (Js.Date.t, Js.Date.t) => int =
-  "differenceInCalendarISOWeekYears"
+  "date-fns/differenceInCalendarISOWeekYears"
 
-@module("date-fns")
+@module
 external differenceInCalendarISOWeekYearsf: (Js.Date.t, Js.Date.t) => float =
-  "differenceInCalendarISOWeekYears"
-@module("date-fns")
-external differenceInISOWeekYears: (Js.Date.t, Js.Date.t) => int = "differenceInISOWeekYears"
-@module("date-fns")
-external differenceInISOWeekYearsf: (Js.Date.t, Js.Date.t) => float = "differenceInISOWeekYears"
-@module("date-fns") external endOfISOWeekYear: Js.Date.t => Js.Date.t = "endOfISOWeekYear"
-@module("date-fns") external getISOWeekYear: Js.Date.t => int = "getISOWeekYear"
-@module("date-fns") external getISOWeekYearf: Js.Date.t => float = "getISOWeekYear"
-@module("date-fns") external getISOWeeksInYear: Js.Date.t => int = "getISOWeeksInYear"
-@module("date-fns") external getISOWeeksInYearf: Js.Date.t => float = "getISOWeeksInYear"
-@module("date-fns")
-external isSameISOWeekYear: (Js.Date.t, Js.Date.t) => bool = "isSameISOWeekYear"
-@module("date-fns")
-external lastDayOfISOWeekYear: Js.Date.t => Js.Date.t = "lastDayOfISOWeekYear"
-@module("date-fns")
-external setISOWeekYear: (Js.Date.t, int) => Js.Date.t = "setISOWeekYear"
-@module("date-fns")
-external setISOWeekYearf: (Js.Date.t, float) => Js.Date.t = "setISOWeekYear"
-@module("date-fns")
-external startOfISOWeekYear: Js.Date.t => Js.Date.t = "startOfISOWeekYear"
-@module("date-fns")
-external subISOWeekYears: (Js.Date.t, int) => Js.Date.t = "subISOWeekYears"
-@module("date-fns")
-external subISOWeekYearsf: (Js.Date.t, float) => Js.Date.t = "subISOWeekYears"
+  "date-fns/differenceInCalendarISOWeekYears"
+@module
+external differenceInISOWeekYears: (Js.Date.t, Js.Date.t) => int =
+  "date-fns/differenceInISOWeekYears"
+@module
+external differenceInISOWeekYearsf: (Js.Date.t, Js.Date.t) => float =
+  "date-fns/differenceInISOWeekYears"
+@module external endOfISOWeekYear: Js.Date.t => Js.Date.t = "date-fns/endOfISOWeekYear"
+@module external getISOWeekYear: Js.Date.t => int = "date-fns/getISOWeekYear"
+@module external getISOWeekYearf: Js.Date.t => float = "date-fns/getISOWeekYear"
+@module external getISOWeeksInYear: Js.Date.t => int = "date-fns/getISOWeeksInYear"
+@module external getISOWeeksInYearf: Js.Date.t => float = "date-fns/getISOWeeksInYear"
+@module
+external isSameISOWeekYear: (Js.Date.t, Js.Date.t) => bool = "date-fns/isSameISOWeekYear"
+@module
+external lastDayOfISOWeekYear: Js.Date.t => Js.Date.t = "date-fns/lastDayOfISOWeekYear"
+@module
+external setISOWeekYear: (Js.Date.t, int) => Js.Date.t = "date-fns/setISOWeekYear"
+@module
+external setISOWeekYearf: (Js.Date.t, float) => Js.Date.t = "date-fns/setISOWeekYear"
+@module
+external startOfISOWeekYear: Js.Date.t => Js.Date.t = "date-fns/startOfISOWeekYear"
+@module
+external subISOWeekYears: (Js.Date.t, int) => Js.Date.t = "date-fns/subISOWeekYears"
+@module
+external subISOWeekYearsf: (Js.Date.t, float) => Js.Date.t = "date-fns/subISOWeekYears"
 
 // Decade Helpers
-@module("date-fns") external endOfDecade: Js.Date.t => Js.Date.t = "endOfDecade"
+@module external endOfDecade: Js.Date.t => Js.Date.t = "date-fns/endOfDecade"
 type endOfDecadeOptions = {additionalDigits: option<int>}
-@module("date-fns")
-external endOfDecadeOpt: (Js.Date.t, endOfDecadeOptions) => Js.Date.t = "endOfDecade"
-@module("date-fns") external getDecade: Js.Date.t => int = "getDecade"
-@module("date-fns") external getDecadef: Js.Date.t => float = "getDecade"
-@module("date-fns") external lastDayOfDecade: Js.Date.t => Js.Date.t = "lastDayOfDecade"
-@module("date-fns") external startOfDecade: Js.Date.t => Js.Date.t = "startOfDecade"
+@module
+external endOfDecadeOpt: (Js.Date.t, endOfDecadeOptions) => Js.Date.t = "date-fns/endOfDecade"
+@module external getDecade: Js.Date.t => int = "date-fns/getDecade"
+@module external getDecadef: Js.Date.t => float = "date-fns/getDecade"
+@module external lastDayOfDecade: Js.Date.t => Js.Date.t = "date-fns/lastDayOfDecade"
+@module external startOfDecade: Js.Date.t => Js.Date.t = "date-fns/startOfDecade"
 
 // Week-Numbering Year Helpers
 type weekYearOptions = {
@@ -561,18 +576,18 @@ type weekYearOptions = {
   weekStartsOn: option<int>,
   firstWeekContainsDate: option<int>,
 }
-@module("date-fns") external getWeekYear: Js.Date.t => int = "getWeekYear"
-@module("date-fns")
-external getWeekYearOpt: (Js.Date.t, weekYearOptions) => int = "getWeekYear"
-@module("date-fns") external getWeekYearf: Js.Date.t => float = "getWeekYear"
-@module("date-fns")
-external getWeekYearOptf: (Js.Date.t, weekYearOptions) => float = "getWeekYear"
-@module("date-fns") external setWeekYear: (Js.Date.t, int) => Js.Date.t = "setWeekYear"
-@module("date-fns")
-external setWeekYearOpt: (Js.Date.t, int, weekYearOptions) => Js.Date.t = "setWeekYear"
-@module("date-fns") external setWeekYearf: (Js.Date.t, float) => Js.Date.t = "setWeekYear"
-@module("date-fns")
-external setWeekYearOptf: (Js.Date.t, float, weekYearOptions) => Js.Date.t = "setWeekYear"
-@module("date-fns") external startOfWeekYear: Js.Date.t => Js.Date.t = "startOfWeekYear"
-@module("date-fns")
-external startOfWeekYearOpt: (Js.Date.t, weekYearOptions) => Js.Date.t = "startOfWeekYear"
+@module external getWeekYear: Js.Date.t => int = "date-fns/getWeekYear"
+@module
+external getWeekYearOpt: (Js.Date.t, weekYearOptions) => int = "date-fns/getWeekYear"
+@module external getWeekYearf: Js.Date.t => float = "date-fns/getWeekYear"
+@module
+external getWeekYearOptf: (Js.Date.t, weekYearOptions) => float = "date-fns/getWeekYear"
+@module external setWeekYear: (Js.Date.t, int) => Js.Date.t = "date-fns/setWeekYear"
+@module
+external setWeekYearOpt: (Js.Date.t, int, weekYearOptions) => Js.Date.t = "date-fns/setWeekYear"
+@module external setWeekYearf: (Js.Date.t, float) => Js.Date.t = "date-fns/setWeekYear"
+@module
+external setWeekYearOptf: (Js.Date.t, float, weekYearOptions) => Js.Date.t = "date-fns/setWeekYear"
+@module external startOfWeekYear: Js.Date.t => Js.Date.t = "date-fns/startOfWeekYear"
+@module
+external startOfWeekYearOpt: (Js.Date.t, weekYearOptions) => Js.Date.t = "date-fns/startOfWeekYear"

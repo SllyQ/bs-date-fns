@@ -1,10 +1,12 @@
 {
   "name": "bs-date-fns",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.1",
   "description": "Bucklescript bindings to date-fns",
   "scripts": {
     "bs-build": "bsb -clean-world -make-world",
-    "watch": "bsb -make-world -clean-world -w"
+    "watch": "bsb -make-world -clean-world -w",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "repository": {
     "type": "git",
@@ -19,9 +21,10 @@
   "author": "Arnoldas Sidlauskas <arnoldas.sid@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "date-fns": "^2.8.1"
+    "date-fns": "^2.20.0"
   },
   "devDependencies": {
-    "bs-platform": "^8.0.3"
+    "@glennsl/bs-jest": "^0.7.0",
+    "bs-platform": "^9.0.2"
   }
 }
